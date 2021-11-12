@@ -39,3 +39,7 @@ resource "aws_eip" "hjson_weba_ip" {
     aws_internet_gateway.hjson_ig
   ]
 }
+
+output "public_ip" {
+  value = aws_instance.hjson_weba.public_ip
+}
