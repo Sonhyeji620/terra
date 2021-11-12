@@ -41,3 +41,25 @@ resource "aws_subnet" "hjson_pric" {
   }
   
 }
+
+# 가용영역 a의 private DB subnet
+resource "aws_subnet" "hjson_pridba" {
+  vpc_id = aws_vpc.hjson_vpc.id
+  cidr_block = "10.0.4.0/24"
+  availability_zone = "ap-northeast-2a"
+  tags = {
+    "Name" = "hjson-pridba"
+  }
+  
+}
+
+# 가용영역 c의 private DB subnet
+resource "aws_subnet" "hjson_pridbc" {
+  vpc_id = aws_vpc.hjson_vpc.id
+  cidr_block = "10.0.5.0/24"
+  availability_zone = "ap-northeast-2c"
+  tags = {
+    "Name" = "hjson-pridbc"
+  }
+  
+}
