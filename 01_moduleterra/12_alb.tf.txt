@@ -1,0 +1,14 @@
+resource "aws_lb" "hjson_alb" {
+  name = "hjson-alb"
+  internal = false
+  load_balancer_type = "application"
+  security_groups = [aws_security_group.hjson_sg.id]
+  #loadbalancer가 사용할 public ip
+  subnets = [aws_subnet.hjson_pub[0].id, aws_subnet.hjson_pub[1].id] 
+
+  tags = {
+    "Name" = "hjson-alb"
+  }
+
+  
+}
